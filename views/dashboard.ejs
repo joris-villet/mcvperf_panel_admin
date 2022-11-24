@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <script src="/jquery.js"></script>
+  <script src="/axios.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/main.js" type="module"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 sidebar">
+        <ul class="list-group">
+          <h2 class="logo">Logo</h2>
+          <% for (const table of tables) { %>
+            <li class="list-group-item tables" aria-current="true">
+              <p><%= table.table_name %></p>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="col-10">
+        <ul class="rows list-group">
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
