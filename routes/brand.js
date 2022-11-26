@@ -56,40 +56,20 @@ router.get('/admin/:table/:offset', async (req, res) => {
 });
 
 
-router.put('/brands/update/:id', async (req, res) => {
-  try {
-
-    const data = await db('brands')
-      .where('id', Number(req.params.id))
-      .update({
-        id: req.params.id,
-        name: req.body.name,
-        width: req.body.width,
-        created_at: req.body.created_at,
-        updated_at: new Date()
-      }, ['id'])
-    
-    res.send({id: data});
-
-  }
-  catch (err) {
-    console.log(err);
-    res.send(err);
-  }
-})
-
-// router.put('/:table/update/:id', async (req, res) => {
+// router.put('/brands/update/:id', async (req, res) => {
 //   try {
 
-//     console.log(req.body)
-
-//     req.body.updated_at = new Date();
-
-//     const data = await db(req.params.table)
+//     const data = await db('brands')
 //       .where('id', Number(req.params.id))
-//       .update(req.body)
+//       .update({
+//         id: req.params.id,
+//         name: req.body.name,
+//         width: req.body.width,
+//         created_at: req.body.created_at,
+//         updated_at: new Date()
+//       }, ['id'])
     
-//     res.send(data);
+//     res.send({id: data});
 
 //   }
 //   catch (err) {
@@ -97,6 +77,31 @@ router.put('/brands/update/:id', async (req, res) => {
 //     res.send(err);
 //   }
 // })
+
+router.put('/:table/update/:id', async (req, res) => {
+  try {
+
+    //console.log(req.body)
+
+    // let data = undefined;
+    
+    req.body.updated_at = new Date();
+    
+
+    const data = await db(req.params.table)
+      .where('id', Number(req.params.id))
+      .update(req.body, ['id'])
+
+    
+    
+    res.send(data);
+
+  }
+  catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+})
 
 
 module.exports = router;
