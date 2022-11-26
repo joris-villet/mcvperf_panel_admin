@@ -16,6 +16,7 @@ app.use(express.static('public'));
 app.use(express.static('node_modules/bootstrap/dist'));
 app.use(express.static('node_modules/jquery/dist'));
 app.use(express.static('node_modules/axios/dist'));
+app.use(express.static('node_modules/lit-html'));
 app.use(express.json());
 
 const port = process.env.PORT || 7000;
@@ -48,6 +49,11 @@ app.get('/admin', async (req, res) => {
 
 
 app.use(brandsRouter);
+
+// reload page redirect admin
+app.use((req, res) => {
+  res.redirect('/admin')
+})
 
 
 
