@@ -13,7 +13,7 @@ $(window).on('load', () => {
   
 
   // $('.list-group-item').on('click', getData);
-  $('.list-group-item').on('click', evt => {
+  $('.list__tables').on('click', evt => {
     if (evt.target.textContent.trim() !== tableClicked) {
       offset = 0;
     }
@@ -172,19 +172,19 @@ function createTable(table) {
   
   if (stage) {
     const thead = $('<tr></tr>')
-      .append(`<th scope="row">Id</th>`)
+      .append(`<th class="thead__id">Id</th>`)
       .append(`<td>puissance origine</td>`)
       .append(`<td>puissance stage</td>`)
       .append(`<td>couple origine</td>`)
       .append(`<td>couple stage</td>`)
-      .append(`<td>prix</td>`)
+      .append(`<td class="thead__price">prix</td>`)
     
       $('.thead').append(thead);
   }
   else {
     let thead = $('<tr></tr>')
-      .append(`<th scope="row">Id</th>`)
-      .append(`<th scope="row">Name</th>`)
+      .append(`<th class="thead__id">Id</th>`)
+      .append(`<th>Name</th>`)
         
     $('.thead').append(thead);
   }
@@ -197,38 +197,36 @@ function createTable(table) {
 
         if (index !== i) {
           const thead = $('<tr></tr>')
-            .append(`<th scope="row">${el.id}</th>`)
+            .append(`<th>${el.id}</th>`)
             .append(`<td>${el.puissance_ori}</td>`)
             .append(`<td>${el.puissance_stage}</td>`)
             .append(`<td>${el.couple_ori}</td>`)
             .append(`<td>${el.puissance_stage}</td>`)
             .append(`<td>${el.price}</td>`)
-            .append(`<button id="${el.id}" class="edit"></button>`);
+            .append(`<button id="${el.id}" class="edit">Edit</button>`);
 
-          let svgEdit = $('<svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6v2h11V6H3m0 4v2h11v-2H3m17 .1c-.1 0-.3.1-.4.2l-1 1l2.1 2.1l1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8l-6.1 6V20h2.1l6.1-6.1l-2.1-2M3 14v2h7v-2H3Z"/></svg>')
-          $('.table .rows button').append(svgEdit);
+          // let svgEdit = $('<svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6v2h11V6H3m0 4v2h11v-2H3m17 .1c-.1 0-.3.1-.4.2l-1 1l2.1 2.1l1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8l-6.1 6V20h2.1l6.1-6.1l-2.1-2M3 14v2h7v-2H3Z"/></svg>')
+          // $('.table .rows button').append(svgEdit);
         
           
-          $('.thead').append(thead);
+          //$('.thead').append(thead);
+          $('.rows').append(thead);
         }
         else {
           const thead = $('<tr></tr>')
-            .append(`<th scope="row">${el.id}</th>`)
+            .append(`<th>${el.id}</th>`)
             .append(`<td>${el.puissance_ori}</td>`)
             .append(`<td>${el.puissance_stage}</td>`)
             .append(`<td>${el.couple_ori}</td>`)
             .append(`<td>${el.puissance_stage}</td>`)
             .append(`<td>${el.price}</td>`)
-            .append(`
-              <button id="${el.id}" class="edit">
-                <svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6v2h11V6H3m0 4v2h11v-2H3m17 .1c-.1 0-.3.1-.4.2l-1 1l2.1 2.1l1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8l-6.1 6V20h2.1l6.1-6.1l-2.1-2M3 14v2h7v-2H3Z"/></svg>
-              </button>
-            `);
+            .append(`<button id="${el.id}" class="edit">Edit</button>`);
           
           // let svgEdit = $('<svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6v2h11V6H3m0 4v2h11v-2H3m17 .1c-.1 0-.3.1-.4.2l-1 1l2.1 2.1l1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8l-6.1 6V20h2.1l6.1-6.1l-2.1-2M3 14v2h7v-2H3Z"/></svg>')
           // $('.table .rows tr button').append(svgEdit);
           
-            $('.thead').append(thead);
+          //$('.thead').append(thead);
+          $('.rows').append(thead);
         }
 
       }
@@ -236,18 +234,18 @@ function createTable(table) {
         if (index !== i) {
   
           let tr = $('<tr></tr>')
-            .append(`<th scope="row">${el.id}</th>`)
+            .append(`<th>${el.id}</th>`)
             .append(`<td>${el.name}</td>`)
-            .append(`<button id="${el.id}" class="edit">edit</button>`)
+            .append(`<button id="${el.id}" class="edit">Edit</button>`)
           
           $('.rows').append(tr);
         }
         else {
   
           let tr = $('<tr></tr>')
-            .append(`<th scope="row">${el.id}</th>`)
+            .append(`<th>${el.id}</th>`)
             .append(`<td>${el.name}</td>`)
-            .append(`<button id="${el.id}" class="edit">edit</button>`)
+            .append(`<button id="${el.id}" class="edit">Edit</button>`)
           
           $('.rows').append(tr);
         }
@@ -268,12 +266,12 @@ function createTable(table) {
     //   $('.pagination').append(li);
     // }
 
-    let btnPrevious = $(`<li class="page-item page-link btn-pages">previous</li>`);
-    let btnNext = $(`<li class="page-item page-link btn-pages">next</li>`);
+    let btnPrevious = $(`<li class="btn-pages">previous</li>`);
+    let btnNext = $(`<li class="btn-pages">next</li>`);
     //let rowsLength = $(`<span>${dataLength}</span>`);
     $('.pagination').append(btnPrevious);
     $('.pagination').append(btnNext);
-    $('.count-rows').text(`Résultats: ${dataLength}`);
+    $('.count-rows').text(`${tableClicked}: ${dataLength}`);
 
     clickPagination();
   };

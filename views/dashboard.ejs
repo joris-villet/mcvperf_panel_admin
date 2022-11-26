@@ -5,25 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- <link rel="stylesheet" href="/css/bootstrap.css"> -->
   <link rel="stylesheet" href="/css/index.css">
   <script src="/jquery.js"></script>
   <script src="/axios.js"></script>
-  <script src="/js/bootstrap.js"></script>
+  <!-- <script src="/js/bootstrap.js"></script> -->
   <script src="/js/main.js" type="module"></script>
 </head>
 <body>
-  <div class="dashboard container-fluid">
-    <div class="row">
+  <div class="dashboard">
 
-      <div class="col-2 sidebar">
+    <div class="dashboard__table">
+
+      <div class="sidebar">
         <ul class="list-group">
           <h2 class="title-logo">
             <img class="logo" src="/img/logomcv.png" alt="logo">
           </h2>
           <% for (const table of tables) { %>
-            <li class="list-group-item tables" aria-current="true">
+            <li class="list__tables" aria-current="true">
               <p><%= table.table_name %></p>
             </li>
           <% } %>
@@ -31,7 +32,7 @@
       </div>
 
 
-      <div class="col-10 table_rows">
+      <div class="table_rows">
         <h3 class="h3 count-rows"></h3>
         <!-- <ul class="rows list-group">
           
@@ -53,6 +54,7 @@
           </ul>
         </nav>
       </div>
+
     </div>
 
 
@@ -72,7 +74,7 @@
   <img class="img-golf" src="/img/GOLF8R.png" alt="image golf 8 r">
   <div class="owner">
     <p>created by Joris with<p>
-    <svg width="15" height="32" viewBox="0 0 20 20">
+    <svg width="15" height="auto" viewBox="0 0 20 20">
       <path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172a4 4 0 0 1 5.656 0L10 6.343l1.172-1.171a4 4 0 1 1 5.656 5.656L10 17.657l-6.828-6.829a4 4 0 0 1 0-5.656Z" clip-rule="evenodd"/>
     </svg>
   </div>

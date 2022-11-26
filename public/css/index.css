@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300&display=swap');
 
 * {
-  margin: 0!important;
-  padding: 0!important;   
+  margin: 0;
+  padding: 0;   
 }
 
 .owner {
@@ -49,6 +49,11 @@ body {
   width: 200px;
 }
 
+.dashboard__table {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
 .sidebar {
   height: 100vh;
   background: rgb(42,103,136);
@@ -56,33 +61,53 @@ body {
   box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.list-group-item.tables {
+.list__tables {
   background: rgb(42,103,136);
   background: linear-gradient(90deg, rgba(42,103,136,1) 0%, rgba(70,90,126,1) 100%);
   color: rgb(239, 239, 239);
   text-align: left;
-  padding-left: 2rem;
+  padding-left: 3rem;
   font-size: 0.9rem;
   height: 30px;
   line-height: 30px;
-  text-align: center;
   cursor: pointer;
 }
 
-.list-group-item.tables:hover {
+.list__tables:hover {
   background: rgba(51, 111, 151, 0.842);
   border-top: 1px solid rgba(51, 131, 252, 0.685);
   border-bottom: 1px solid rgba(51, 131, 252, 0.685);
 }
 
 .table_rows {
-  padding: 2rem!important;
+  padding: 2rem;
 }
 
 .table {
   color: #fff;
+  width: 65%;
 }
 
+.table .thead {
+  background: #a9c6bf4a;
+}
+
+.thead td, .rows td {
+  text-align: center;
+}
+
+.thead__id {
+  width: 50px;
+}
+
+.thead__price {
+  width: 100px;
+}
+
+tr {
+  position: relative;
+  background: #37dbb424;
+}
 
 .sidebar_edit {
   background: #f1f1f133;
@@ -105,7 +130,7 @@ body {
 }
 
 .form {
-  margin-top: 5rem;
+  margin: 5rem auto;
   width: 90%;
 }
 
@@ -114,12 +139,18 @@ body {
 }
 
 .btn-editer {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #5ae8ff;
   padding: 0.5rem 2rem;
+  margin: 2rem auto;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   width: 150px;
+  height: 25px;
+  border: none;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 .input-edit {
@@ -127,11 +158,14 @@ body {
   color: #71dff9;
   display: block;
   width: 100%;
+  border: none;
+  height: 30px;
 }
 
 .pagination {
+  display: flex;
   position: absolute;
-  bottom: 17rem;
+  bottom: 12rem;
 }
 
 .btn-pages {
@@ -149,11 +183,33 @@ body {
 }
 
 .btn-pages:hover {
-  border: 1px solid rgba(136, 169, 175, 0.671);
+  border: 1px solid #12ffff;
 }
+
+.edit {
+  width: 120px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: transparent;
+  color: #12ffff;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  border: 1px solid #95ffff30;
+  position: absolute;
+  right: -8rem;
+}
+
+.edit:hover {
+  border: 1px solid #12ffff;
+}
+
 
 .count-rows {
   color: #fff;
+  margin-bottom: 1rem;
 }
 
 /* .show {
